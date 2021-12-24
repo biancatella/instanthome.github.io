@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <!-- ===============================================-->
+    <!--    Document Title-->
+    <!-- ===============================================-->
+    <title>Instant Home | Seu apê em um instante</title>
+
+    @@include('./head-includes.html')
+    <link href="assets/css/solutions.css" rel="stylesheet" />
+    <link href="assets/css/image-gallery.css" rel="stylesheet" />
+</head>
+
+<body>
+    <main class="main" id="top">
+        <!-- ===============================================-->
+        <!--   HEADER-->
+        <!-- ===============================================-->
+        @@include('./header.html')
+
+        <!-- ===============================================-->
+        <!-- MAIN CONTENT-->
+        <!-- ===============================================-->
+
+
+        <section id="home">
+            <div class="hero-bg-holder">
+            </div>
+            <div class="container banner">
+                <div>
+                    <h1 class="banner-text--orange font-family--brand mrp-800">
+                        Viver Mais
+                    </h1>
+                </div>
+            </div>
+        </section>
+
+
+
+        <section class="container main-section-container" id="gallery">
+            <h3 class="mb-40">Veja a solucão ideal para seu espaço:</h3>
+
+
+            <div class="card-background">
+                <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 image image-wrapper">
+                    <div class="img-wrapper">
+                        <a href="assets/img/gallery/viver-mais/Apto_Tipo03/TS_Viver_Mais_Tipo_03_HR.jpg"><img src="assets/img/gallery/viver-mais/Apto_Tipo03/TS_Viver_Mais_Tipo_03_HR.jpg" class="img-responsive" /></a>
+                        <div class="img-overlay">
+                            <img src="assets/img/icons/zoom-in-icom-white.svg" class="overlay-img--zoom-in">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
+
+                    <h3 class="mrp-800">Finais 5 e 8</h3>
+                    <p class="mrp-800">Apartamento tipo 3 </p>
+                    <span class="pill--grey">1 quarto  |  50m  |  1 vaga de garagem </span>
+                    <a class="btn btn-primary primary-button--orange" href="https://drive.google.com/file/d/1J57HMYxBxhfi3kPWyHRiATRW3WKbfTtL/view" target="_blank">Ver solução</a>
+
+                </div>
+
+            </div>
+
+
+            <div id="image-gallery">
+
+                <div class="row apartment-content pt-40">
+                    <h4>Imagens do projeto</h4>
+                    <!-- colocar aqui metragem, garagem.. -->
+
+                    <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 image">
+                        <div class="img-wrapper">
+                            <a href="assets/img/gallery/viver-mais/Apto_Tipo03/Casal/Instant_H_VM_Tipo03_Casal_R00.jpg">
+                                <img src="assets/img/gallery/viver-mais/Apto_Tipo03/Casal/Instant_H_VM_Tipo03_Casal_R00.jpg" class="img-responsive img-size" /></a>
+                            <div class="img-overlay">
+                                <img src="assets/img/icons/zoom-in-icom-white.svg" class="overlay-img--zoom-in">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 image">
+                        <div class="img-wrapper">
+                            <a href="assets/img/gallery/viver-mais/Apto_Tipo03/Cozinha/Instant_H_VM_Tipo03_Cozinha_R00.jpg"><img src="assets/img/gallery/viver-mais/Apto_Tipo03/Cozinha/Instant_H_VM_Tipo03_Cozinha_R00.jpg" class="img-responsive img-size"></a>
+                            <div class="img-overlay">
+                                <img src="assets/img/icons/zoom-in-icom-white.svg" class="overlay-img--zoom-in">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 image">
+                        <div class="img-wrapper">
+                            <a href="assets/img/gallery/viver-mais/Apto_Tipo03/Living/Instant_H_VM_Tipo03_Living_R00.jpg"><img src="assets/img/gallery/viver-mais/Apto_Tipo03/Living/Instant_H_VM_Tipo03_Living_R00.jpg" class="img-responsive img-size"></a>
+                            <div class="img-overlay">
+                                <img src="assets/img/icons/zoom-in-icom-white.svg" class="overlay-img--zoom-in">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <!-- End image gallery -->
+            </div>
+            <!-- End container -->
+        </section>
+
+
+        <!-- ===============================================-->
+        <!-- FOOTER-->
+        <!-- ===============================================-->
+        @@include('./footer.html')
+
+        <script>
+            // Gallery image hover
+            $(".img-wrapper").hover(
+                function() {
+                    $(this).find(".img-overlay").animate({
+                        opacity: 1
+                    }, 600);
+                },
+                function() {
+                    $(this).find(".img-overlay").animate({
+                        opacity: 0
+                    }, 600);
+                }
+            );
+
+            // Lightbox
+            var $overlay = $('<div id="overlay"></div>');
+            var $image = $("<img>");
+            var $prevButton = $('<div id="prevButton"></div>');
+            var $nextButton = $('<div id="nextButton"></div>');
+            var $exitButton = $('<div id="exitButton"></div>');
+
+            // Add overlay
+            $overlay.append($image).prepend($prevButton).append($nextButton).append($exitButton);
+            $("#gallery").append($overlay);
+
+            // Hide overlay on default
+            $overlay.hide();
+
+            // When an image is clicked
+            $(".img-overlay").click(function(event) {
+                // Prevents default behavior
+                event.preventDefault();
+                // Adds href attribute to variable
+                var imageLocation = $(this).prev().attr("href");
+                // Add the image src to $image
+                $image.attr("src", imageLocation);
+                // Fade in the overlay
+                $overlay.fadeIn("slow");
+            });
+
+            // When the overlay is clicked
+            $overlay.click(function() {
+                // Fade out the overlay
+                $(this).fadeOut("slow");
+            });
+
+            // When next button is clicked
+            $nextButton.click(function(event) {
+                // Hide the current image
+                $("#overlay img").hide();
+                // Overlay image location
+                var $currentImgSrc = $("#overlay img").attr("src");
+                // Image with matching location of the overlay image
+                var $currentImg = $('#image-gallery img[src="' + $currentImgSrc + '"]');
+                // Finds the next image
+                var $nextImg = $($currentImg.closest(".image").next().find("img"));
+                // All of the images in the gallery
+                var $images = $("#image-gallery img");
+                // If there is a next image
+                if ($nextImg.length > 0) {
+                    // Fade in the next image
+                    $("#overlay img").attr("src", $nextImg.attr("src")).fadeIn(800);
+                } else {
+                    // Otherwise fade in the first image
+                    $("#overlay img").attr("src", $($images[0]).attr("src")).fadeIn(800);
+                }
+                // Prevents overlay from being hidden
+                event.stopPropagation();
+            });
+
+            // When previous button is clicked
+            $prevButton.click(function(event) {
+                // Hide the current image
+                $("#overlay img").hide();
+                // Overlay image location
+                var $currentImgSrc = $("#overlay img").attr("src");
+                // Image with matching location of the overlay image
+                var $currentImg = $('#image-gallery img[src="' + $currentImgSrc + '"]');
+                // Finds the next image
+                var $nextImg = $($currentImg.closest(".image").prev().find("img"));
+                // Fade in the next image
+                $("#overlay img").attr("src", $nextImg.attr("src")).fadeIn(800);
+                // Prevents overlay from being hidden
+                event.stopPropagation();
+            });
+
+            // When the exit button is clicked
+            $exitButton.click(function() {
+                // Fade out the overlay
+                $("#overlay").fadeOut("slow");
+            });
+        </script>
+
+
+</body>
+
+
+</html>
