@@ -1,0 +1,13 @@
+.hero-bg-holder {
+    background-image: url(https://instanthomebr.files.wordpress.com/2021/12/hero-img-form.png);
+}
+
+.container-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+iframe {
+    max-width: 100%;
+}
