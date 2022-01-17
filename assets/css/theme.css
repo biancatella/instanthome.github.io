@@ -474,6 +474,22 @@ h4 {
     margin: 16px;
 }
 
+.highlight-text {
+    width: fit-content;
+    background-size: 200.22% auto;
+    -webkit-background-size: 200.22% auto;
+    -moz-background-size: 200.22% auto;
+    background-position: -0% 0;
+    background-image: linear-gradient(to right, rgba(255, 255, 255, 0) 50%, #FFDEDC 50%);
+    transition: background-position 0.5s ease-out;
+    -webkit-transition: background-position 0.5s ease-out;
+}
+
+.highlight-text:hover,
+.highlight-text.animate {
+    background-position: -99.99% 0;
+}
+
 @media (min-width: 992px) {
     .nav-link.navigation-link.button-navbar {
         background-color: transparent;
